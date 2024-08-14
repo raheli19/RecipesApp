@@ -1,0 +1,41 @@
+  .disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+
+    .sidebar.closed {
+    width: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .toggle-button {
+    position: absolute;
+    top: 10px;
+    right: -50px;
+    background-color: #c1bbb9;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0 !important;
+      padding: 0 !important;
+    }
+  
+    .sidebar.open {
+      width: 250px !important;
+      padding: 16px !important;
+    }
+  
+    main {
+      margin-left: 0 !important;
+      width: 100% !important;
+    }
+  }
+
+  
+
+  

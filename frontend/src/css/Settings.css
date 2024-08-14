@@ -1,0 +1,99 @@
+/*.info-container {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .info-details {
+    line-height: 1.6;
+  }
+  
+  .info-field {
+    margin-bottom: 10px;
+  }
+  
+  .info-field strong {
+    color: #555;
+  }
+  
+  .info-hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+  }*/
+  .settings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(250, 234, 213);
+  padding: 16px;
+}
+
+.settings-form {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+.settings-title {
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.settings-divider {
+  margin-bottom: 24px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 12px;
+}
+
+.settings-label {
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  align-self: center;
+}
+
+.settings-input {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+}
+
+.settings-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 24px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.settings-button:hover {
+  background-color: #464b46;
+}

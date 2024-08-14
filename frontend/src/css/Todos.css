@@ -1,0 +1,121 @@
+.todos-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 10px rgba(98, 126, 160, 0.1);
+  text-align: left;
+  margin-top: 100px;
+}
+
+.todos-title {
+  text-align: center;
+  font-size: 40px;
+  color: rgb(226, 100, 100);
+  margin-bottom: 20px;
+}
+
+.sorting-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sorting-container select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+.sorting-icon {
+  margin-right: 10px;
+  color: rgb(226, 100, 100);
+  font-size: 1.5em;
+}
+.search-input {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+.add-todo-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.new-todo-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.add-todo-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(226, 100, 100);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-todo-button:hover {
+  background-color: #5a807f;
+}
+
+.todos-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item span {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.todo-item button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 10px;
+  background: none; /* Remove background for icons */
+}
+
+.todo-item .delete-button {
+  color: #f44336;
+}
+
+.todo-item .delete-button:hover {
+  color: #e53935;
+}
+
+.todo-item .edit-button {
+  color: #2196F3;
+}
+
+.todo-item .edit-button:hover {
+  color: #1e88e5;
+}

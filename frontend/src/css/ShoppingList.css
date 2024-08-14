@@ -1,0 +1,108 @@
+.recipe-ingredients {
+  font-family: Arial, sans-serif;
+  width: '100vw';
+  height: '100vh';
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-ingredients h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.recipe-ingredients select {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.recipe-image {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.recipe-image img {
+  width: 90%;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+   object-fit: cover;
+
+}
+
+.ingredients-list {
+  margin-top: 20px;
+}
+
+.ingredients-list h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.ingredients-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ingredients-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ingredients-list input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.ingredients-list span {
+  font-size: 16px;
+  color: #333;
+}
+
+.ingredients-list span.checked {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.ingredients-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 200px;
+}
+
+@media (min-width: 1068px) {
+  .ingredients-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 400px;
+}
+}
+
+.shopping-list {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .shopping-list {
+        width: 90%;
+    }
+}

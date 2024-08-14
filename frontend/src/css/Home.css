@@ -1,0 +1,174 @@
+
+/*.home-container{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('https://img.freepik.com/premium-vector/social-media-technology_165488-3349.jpg') no-repeat center center fixed;
+    background-size: auto;
+    background-color: rgb(236, 213, 213);
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .header {
+    color: rgb(226, 100, 100);
+    padding: 20px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar li {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0px 80px 0px 0px;
+  }
+
+  .navbar a {
+    color: #957c7c;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .navbar a:hover {
+    color: rgb(226, 100, 100);
+  }*/
+
+
+
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.home {
+  display: flex;
+}
+
+.sidebar {
+  background-color: #c1bbb9;
+  color: rgb(30, 24, 24);
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+}
+
+.search-bar {
+  
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+  padding: 5px 0;
+  text-align: left;
+}
+
+.list-item {
+  list-style: none;
+  cursor: pointer;
+  color: black;
+}
+
+.list-item:hover {
+  color: rgb(118, 97, 5);
+}
+
+
+.main-content {
+  background-color:rgb(250, 234, 213);
+  flex: 1;
+  padding: 20px;
+}
+
+.recipes {
+  background-color:rgb(250, 234, 213);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+.recipe-card {
+  width: 200px;
+  margin: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.recipe-info {
+  padding: 10px;
+  text-align: center;
+  background-color: bisque;
+}
+
+.recipe-info h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.recipe-info p {
+  margin: 5px 0 0;
+  color: #666;
+}
+.recipe-info span {
+  display: block;
+  margin-top: 5px;
+  color: #ec664e;
+}
+
+@media (max-width: 1268px) {
+    .searchTool {
+      display: none;
+    }
+  
+  }
+
+  

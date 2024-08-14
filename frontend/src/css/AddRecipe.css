@@ -1,0 +1,9 @@
+.addRecipe {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .addRecipe {
+        width: 90%;
+    }
+}

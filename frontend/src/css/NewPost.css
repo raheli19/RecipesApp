@@ -1,0 +1,45 @@
+h2{
+    color: rgb(226, 100, 100);
+    font-size: 60px;
+}
+.new-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .title-input, .body-input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .body-input {
+    height: 200px;
+    resize: none;
+  }
+  
+  .add-post-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(226, 100, 100);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-post-button:hover {
+    background-color: #957c7c;
+  }
+  

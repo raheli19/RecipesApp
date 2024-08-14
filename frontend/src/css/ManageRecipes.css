@@ -1,0 +1,34 @@
+.recipe-container {
+  margin-bottom: 20px;
+}
+
+.recipe-actions {
+  display: flex;
+  justify-content: center; /* Centrer les boutons */
+  margin-top: 10px;
+}
+
+.recipe-actions button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px; /* Ajouter une marge horizontale entre les boutons */
+  border-radius: 50%; /* Rendre les boutons ronds */
+  display: flex; /* Utiliser flexbox pour centrer les icônes */
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+}
+
+.recipe-actions button i {
+  margin-right: 0; /* Supprimer la marge droite pour centrer parfaitement */
+}
+
+.recipe-actions .delete-button {
+  background-color: #fe9375; /* Rouge clair */
+}
+
+.recipe-actions .update-button {
+  background-color: #d5d1d0; /* Bleu clair adapté */
+}
