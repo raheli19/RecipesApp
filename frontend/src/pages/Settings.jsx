@@ -27,7 +27,7 @@ function Settings() {
       role: role,
     };
 
-    fetch(`http://localhost:3001/updateUserById/${user.id}`, {
+    fetch(`http://localhost:3006/updateUserById/${user.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

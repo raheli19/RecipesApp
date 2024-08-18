@@ -1,7 +1,7 @@
 exports.connectionInfo = {
     host: "localhost",
-    user: "admin",
-    password: "admin", 
+    user: "root",
+    password: "Sisi4221!", 
     database: "recipesDB"
   };
   

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../css/Home.css";
 import RecipeCard from "./RecipeCard";
+import Chatbox from "./ChatBot";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useUser } from "../context/UserContext";
 import { styled, alpha } from "@mui/material/styles";
@@ -65,7 +66,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/getRecipes")
+    fetch("http://localhost:3006/getRecipes")
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data);
@@ -115,6 +116,7 @@ const Home = () => {
           />
         ))}
       </div>
+      <Chatbox />
     </div>
   );
 };

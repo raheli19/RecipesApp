@@ -1,0 +1,44 @@
+/* src/components/Chatbox.css */
+
+#bp-web-widget {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #bp-web-widget:hover {
+    transform: translateY(-5px);
+  }
+  
+  .bp-widget-header {
+    background-color: #f15b2a;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .bp-widget-footer {
+    background-color: #f15b2a;
+    padding: 10px;
+  }
+  
+  .bp-widget-footer button {
+    background-color: #ffffff;
+    color: #f15b2a;
+    border: 2px solid #f15b2a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bp-widget-footer button:hover {
+    background-color: #f15b2a;
+    color: #ffffff;
+  }
+  

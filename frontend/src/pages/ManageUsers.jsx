@@ -62,7 +62,7 @@ export default function ManageUsers() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3001/getUsers")
+    fetch("http://localhost:3006/getUsers")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data.filter((userItem) => userItem.id !== user.id));
@@ -71,7 +71,7 @@ export default function ManageUsers() {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/deleteUserByID/${id}`, {
+    fetch(`http://localhost:3006/deleteUserByID/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -89,7 +89,7 @@ export default function ManageUsers() {
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:3001/updateUserById/${id}`, {
+    fetch(`http://localhost:3006/updateUserById/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

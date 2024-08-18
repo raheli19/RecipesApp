@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const db = require("./database");
-const PORT = process.env.port || 3001;
+const PORT = process.env.port || 3006;
 const path = require("path");
 const saltRounds = 10;
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
+import MealPlanner from "./pages/MealPlanner";
 import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import Recipes from "./pages/Recipes";
@@ -44,6 +45,7 @@ export default function App() {
                 <Route path="/Recipes/:userId" element={<Recipes />} />
                 <Route path="/Logout" element={<Logout />} />
                 <Route path="/Favorite/:userId" element={<Favorite />} />
+                <Route path="/MealPlanner" element={<MealPlanner />} />
               </Route>
             </Route>
             <Route path="/login" element={<Login />} />

@@ -16,7 +16,7 @@ const ShoppingList = () => {
   useEffect(() => {
     // Fetch all recipes
     axios
-      .get("http://localhost:3001/getRecipes")
+      .get("http://localhost:3006/getRecipes")
       .then((response) => {
         setRecipes(response.data);
       })
@@ -35,7 +35,7 @@ const ShoppingList = () => {
     if (selectedRecipe) {
       // Fetch ingredients for the selected recipe
       axios
-        .get(`http://localhost:3001/getIngredientsByRecipeId/${selectedRecipe}`)
+        .get(`http://localhost:3006/getIngredientsByRecipeId/${selectedRecipe}`)
         .then((response) => {
           setIngredients(response.data);
         })
@@ -45,7 +45,7 @@ const ShoppingList = () => {
 
       // Fetch the image for the selected recipe
       axios
-        .get(`http://localhost:3001/getRecipeDetails/${selectedRecipe}`)
+        .get(`http://localhost:3006/getRecipeDetails/${selectedRecipe}`)
         .then((response) => {
           
           setRecipeImage(response.data[0].picture);

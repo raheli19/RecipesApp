@@ -28,7 +28,7 @@ const Todos = ({ user }) => {
   //It filters the tasks by userId and updates the todos state.
   //The tasks are also saved to localStorage.
   const fetchTodos = () => {
-    fetch("http://localhost:3000/todos")
+    fetch("http://localhost:3006/todos")
       .then((response) => response.json())
       .then((data) => {
         data = data.filter(t => t.userId === parseInt(userId, 10));
@@ -55,7 +55,7 @@ const Todos = ({ user }) => {
     };
 
     //adds the task to the server
-    fetch("http://localhost:3000/todos", {
+    fetch("http://localhost:3006/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const Todos = ({ user }) => {
 
   //This func deletes a task by its ID.
   const handleDeleteTodo = (id) => {
-    fetch(`http://localhost:3000/todos/${id}`, {
+    fetch(`http://localhost:3006/todos/${id}`, {
       method: "DELETE",
     })
     .then(() => {
@@ -97,7 +97,7 @@ const Todos = ({ user }) => {
     const updatedTodo = { ...todoToUpdate, completed: !todoToUpdate.completed };
 
     //updates the task on the server and updates the todos state
-    fetch(`http://localhost:3000/todos/${todo_id}`, {
+    fetch(`http://localhost:3006/todos/${todo_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -123,7 +123,7 @@ const Todos = ({ user }) => {
     const updatedTodo = { ...todoToUpdate, title: newTitle };
 
     //updates the task on the server and updates the todos state
-    fetch(`http://localhost:3000/todos/${id}`, {
+    fetch(`http://localhost:3006/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

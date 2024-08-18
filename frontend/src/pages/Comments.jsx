@@ -16,7 +16,7 @@ function Comments({ isOpen, onClose, comments, handleDeleteComment, user, postId
     };
 
     //Makes a POST request to add the new comment to the server.
-    fetch("http://localhost:3000/comments", {
+    fetch("http://localhost:3006/comments", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

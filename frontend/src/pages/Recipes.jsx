@@ -22,7 +22,7 @@ function Albums({ user }) {
   const { userId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/albums?userId=${userId}`)
+    fetch(`http://localhost:3006/albums?userId=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setAlbums(data);
@@ -42,7 +42,7 @@ function Albums({ user }) {
     };
 
     //Makes a POST request to add the new album to the server
-    fetch('http://localhost:3000/albums', {
+    fetch('http://localhost:3006/albums', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

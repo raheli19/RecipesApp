@@ -13,7 +13,7 @@ function Posts({user}) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts?userId=${userId}`)
+    fetch(`http://localhost:3006/posts?userId=${userId}`)
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
@@ -33,7 +33,7 @@ function Posts({user}) {
   const handleCommentsClick = (postId) => {
     setSelectedPostId(postId);
     setAreCommentsOpen(true);
-    fetch(`http://localhost:3000/comments?postId=${postId}`)
+    fetch(`http://localhost:3006/comments?postId=${postId}`)
       .then((response) => response.json())
       .then((data) => setComments(data))
       .catch((error) => {
@@ -47,7 +47,7 @@ function Posts({user}) {
 
   // Deletes a comment by making a DELETE request and updating the comments state.
   const handleDeleteComment = (commentId) => {
-    fetch(`http://localhost:3000/comments/${commentId}`, {
+    fetch(`http://localhost:3006/comments/${commentId}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -60,7 +60,7 @@ function Posts({user}) {
 
   //Deletes a post by making a DELETE request and updating the posts state and local storage.
   const handleDeletePost = (id) => {
-    fetch(`http://localhost:3000/posts/${id}`, {
+    fetch(`http://localhost:3006/posts/${id}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -80,7 +80,7 @@ function Posts({user}) {
     const newTitle = prompt("Enter new title:", updatedPost.title);
     const newBody = prompt("Enter new body:", updatedPost.body);
 
-    fetch(`http://localhost:3000/posts/${id}`, {
+    fetch(`http://localhost:3006/posts/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

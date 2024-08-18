@@ -19,7 +19,7 @@ const RecipeDetail = () => {
 
     const idTable = Math.floor(Math.random() * 1000000);
 if(isFavorite){
-  fetch("http://localhost:3001/removeFavorite", {
+  fetch("http://localhost:3006/removeFavorite", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,7 @@ if(isFavorite){
       });
 }
 else{
-    fetch("http://localhost:3001/addFavorite", {
+    fetch("http://localhost:3006/addFavorite", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,13 +69,13 @@ else{
 
   useEffect(() => {
     // Fetch recipe details
-    fetch(`http://localhost:3001/getRecipeDetails/${id}`)
+    fetch(`http://localhost:3006/getRecipeDetails/${id}`)
       .then((response) => response.json())
       .then((data) => setRecipes(data[0]))
       .catch((error) => console.error("Error fetching recipes:", error));
 
     // Check if the recipe is already a favorite
-    fetch(`http://localhost:3001/getFavoritesByRecipe/${id}`)
+    fetch(`http://localhost:3006/getFavoritesByRecipe/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (
