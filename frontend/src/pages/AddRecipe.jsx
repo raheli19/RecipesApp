@@ -107,7 +107,7 @@ function AddRecipe() {
     const fetchIngredients = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/getAllIngredients"
+          "http://localhost:3006/getAllIngredients"
         );
         setIngredientsList(response.data);
       } catch (error) {
@@ -123,7 +123,7 @@ function AddRecipe() {
 
     const id = Math.floor(Math.random() * 1000000);
 
-    fetch("http://localhost:3001/addNewRecipe", {
+    fetch("http://localhost:3006/addRecipe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,5 @@
 export const registerUser = async (user) => {
-  const response = await fetch("http://localhost:3001/register", {
+  const response = await fetch("http://localhost:3006/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const registerUser = async (user) => {
 };
 
 export const loginUser = async (username, password) => {
-  const response = await fetch("http://localhost:3001/login", {
+  const response = await fetch("http://localhost:3006/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const loginUser = async (username, password) => {
 
 export const checkUsernameExists = async (username) => {
   const response = await fetch(
-    `http://localhost:3001/checkUsername/${username}`
+    `http://localhost:3006/checkUsername/${username}`
   );
 
   if (!response.ok) {

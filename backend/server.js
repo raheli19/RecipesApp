@@ -326,3 +326,16 @@ app.get("/getAllIngredients", (req, res) => {
     })
     .catch((err) => console.log(err));
 });
+
+
+app.get('/api/meal-plans/:id', (req, res) => {
+  const mealPlanId = parseInt(req.params.id, 10);
+  const mealPlan = mealPlans.find(mp => mp.id === mealPlanId);
+
+  if (mealPlan) {
+    res.json(mealPlan);
+  } else {
+    res.status(404).send('Meal Plan not found');
+  }
+});
+

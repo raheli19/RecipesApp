@@ -13,7 +13,7 @@ export default function Favorite() {
     if (!user) {
       return;
     }
-    fetch(`http://localhost:3001/getFavoritesByUser/${user.id}`)
+    fetch(`http://localhost:3006/getFavoritesByUser/${user.id}`)
       .then((response) => response.json())
       .then((data) => {
         setFavorites(data);

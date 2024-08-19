@@ -368,7 +368,7 @@ export default function ManageRecipes() {
 
     try {
       const response = await axios.get(
-        `http://localhost:3001/getIngredientsByRecipeId/${recipe.id}`
+        `http://localhost:3006/getIngredientsByRecipeId/${recipe.id}`
       );
       const ingredientIds = response.data.map((ingredient) => ingredient.id);
       setSelectedIngredients(ingredientIds);
@@ -388,10 +388,10 @@ export default function ManageRecipes() {
     if (!user) {
       return;
     }
-    let fetchLink = `http://localhost:3001/getRecipesByUser/${user.id}`;
+    let fetchLink = `http://localhost:3006/getRecipesByUser/${user.id}`;
 
     if (user.role === "Admin") {
-      fetchLink = `http://localhost:3001/getRecipes`;
+      fetchLink = `http://localhost:3006/getRecipes`;
     }
     fetch(fetchLink)
       .then((response) => response.json())
@@ -405,7 +405,7 @@ export default function ManageRecipes() {
     const fetchIngredients = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/getAllIngredients"
+          "http://localhost:3006/getAllIngredients"
         );
         setIngredientsList(response.data);
       } catch (error) {
@@ -421,7 +421,7 @@ export default function ManageRecipes() {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/deleteRecipeByID/${id}`, {
+    fetch(`http://localhost:3006/deleteRecipeByID/${id}`, {
       method: "DELETE",
     })
       .then((response) => {
@@ -445,7 +445,7 @@ const handleUpdate = (id) => {
     ingredients: selectedIngredients,
   };
 
-  fetch(`http://localhost:3001/updateRecipeById/${id}`, {
+  fetch(`http://localhost:3006/updateRecipeById/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

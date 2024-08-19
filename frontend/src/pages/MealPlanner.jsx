@@ -6,10 +6,16 @@ const MealPlanner = () => {
   const [mealPlan, setMealPlan] = useState(null);
 
   useEffect(() => {
-    axios.get('/api/meal-plans/1').then((response) => {
-      setMealPlan(response.data);
-    });
+    axios.get('http://localhost:3006/api/meal-plans/1')
+      .then((response) => {
+        setMealPlan(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+        // Handle error appropriately
+      });
   }, []);
+  
 
   return (
     <div>
