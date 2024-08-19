@@ -1,5 +1,14 @@
+import React, { useState } from 'react';
+
 const Chatbox = () => {
-    return (
+  const [visible, setVisible] = useState(true);
+
+  const handleClose = () => {
+    setVisible(false);
+  };
+
+  return (
+    visible && (
       <div
         style={{
           position: 'fixed',
@@ -11,6 +20,23 @@ const Chatbox = () => {
           border: 'none',
         }}
       >
+        <button
+          onClick={handleClose}
+          style={{
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            background: 'gray',
+            color: 'white',
+            border: 'none',
+            borderRadius: '50%',
+            width: '30px',
+            height: '30px',
+            cursor: 'pointer',
+          }}
+        >
+          X
+        </button>
         <iframe
           src="https://cdn.botpress.cloud/webchat/v2/shareable.html?botId=4fc7bc3c-11a8-47b2-8fc1-246ae6552111"
           style={{
@@ -21,7 +47,8 @@ const Chatbox = () => {
           title="RecipeBot Chat"
         ></iframe>
       </div>
-    );
-  };
-  
-  export default Chatbox;
+    )
+  );
+};
+
+export default Chatbox;

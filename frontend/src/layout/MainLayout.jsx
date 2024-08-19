@@ -23,7 +23,6 @@ const MainLayout = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Initial check
     handleResize();
 
     return () => {
@@ -113,12 +112,6 @@ const MainLayout = () => {
               </li>
               <li
                 className="list-item"
-                onClick={() => navigate("/mealPlanner")}
-              >
-                <i className="fas fa-calendar-alt"></i> Meal Planner
-              </li>
-              <li
-                className="list-item"
                 onClick={() => navigate(`/favorite/${user.id}`)}
               >
                 <i className="fas fa-heart"></i> Favorite
@@ -126,7 +119,7 @@ const MainLayout = () => {
             </div>
 
             <div className="secondpart">
-              <li className="list-item">
+              <li className="list-item" onClick={() => navigate(`/help`)}>
                 <i className="fas fa-question-circle"></i> Help
               </li>
               <li className="list-item" onClick={() => navigate(`/settings`)}>

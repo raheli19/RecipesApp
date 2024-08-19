@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../css/ShoppingList.css"; // Ensure you have a CSS file for styling
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { getRecipes, getRecipeDetails } from "../services/recipeService";
+import { getIngredientsByRecipeId } from "../services/ingredientService";
 
 const ShoppingList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -15,14 +16,9 @@ const ShoppingList = () => {
 
   useEffect(() => {
     // Fetch all recipes
-    axios
-      .get("http://localhost:3006/getRecipes")
-      .then((response) => {
-        setRecipes(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching recipes:", error);
-      });
+    getRecipes()
+      .then((data) => setRecipes(data))
+      .catch((error) => console.error("Error fetching recipes:", error));
   }, []);
 
   useEffect(() => {
@@ -34,25 +30,14 @@ const ShoppingList = () => {
   useEffect(() => {
     if (selectedRecipe) {
       // Fetch ingredients for the selected recipe
-      axios
-        .get(`http://localhost:3006/getIngredientsByRecipeId/${selectedRecipe}`)
-        .then((response) => {
-          setIngredients(response.data);
-        })
-        .catch((error) => {
-          console.error("Error fetching ingredients:", error);
-        });
+      getIngredientsByRecipeId(selectedRecipe)
+        .then((data) => setIngredients(data))
+        .catch((error) => console.error("Error fetching ingredients:", error));
 
       // Fetch the image for the selected recipe
-      axios
-        .get(`http://localhost:3006/getRecipeDetails/${selectedRecipe}`)
-        .then((response) => {
-          
-          setRecipeImage(response.data[0].picture);
-        })
-        .catch((error) => {
-          console.error("Error fetching recipe image:", error);
-        });
+      getRecipeDetails(selectedRecipe)
+        .then((data) => setRecipeImage(data[0].picture))
+        .catch((error) => console.error("Error fetching recipe image:", error));
     }
   }, [selectedRecipe]);
 
@@ -85,7 +70,7 @@ const ShoppingList = () => {
       }}
     >
       <div
-      className="shopping-list"
+        className="shopping-list"
         style={{
           display: "flex",
           justifyContent: "start",

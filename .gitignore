@@ -41,3 +41,4 @@ backend/coverage/
 # Ignore specific files in your version control
 frontend/public/static/
 backend/public/static/
+backend/connectionInfo.js

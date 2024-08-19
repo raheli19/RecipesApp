@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useUser } from "../context/UserContext";
 import "../css/Settings.css";
 import Loading from "./Loading";
+import { updateUserById } from "../services/userService";
 
 function Settings() {
   const { user, setUser } = useUser();
@@ -16,7 +17,7 @@ function Settings() {
     return <Loading />;
   }
 
-  const handleUpdate = () => {
+  const handleUpdate = async () => {
     const updatedUser = {
       id: user.id,
       first_name: firstName,
@@ -27,23 +28,13 @@ function Settings() {
       role: role,
     };
 
-    fetch(`http://localhost:3006/updateUserById/${user.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedUser),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error updating user information");
-        }
-        console.log("User information updated successfully");
-        setUser(updatedUser);
-      })
-      .catch((error) => {
-        console.error("Error updating user information:", error);
-      });
+    try {
+      await updateUserById(user.id, updatedUser);
+      console.log("User information updated successfully");
+      setUser(updatedUser);
+    } catch (error) {
+      console.error("Error updating user information:", error);
+    }
   };
 
   return (

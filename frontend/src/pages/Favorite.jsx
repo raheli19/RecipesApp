@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RecipeCard from "./RecipeCard";
 import Loading from "./Loading";
 import { useUser } from "../context/UserContext";
+import { getFavoritesByUser } from "../services/favoriteService";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../css/ManageRecipes.css";
 
@@ -13,12 +14,17 @@ export default function Favorite() {
     if (!user) {
       return;
     }
-    fetch(`http://localhost:3006/getFavoritesByUser/${user.id}`)
-      .then((response) => response.json())
-      .then((data) => {
+
+    const fetchFavorites = async () => {
+      try {
+        const data = await getFavoritesByUser(user.id);
         setFavorites(data);
-      })
-      .catch((error) => console.error("Error fetching favorites:", error));
+      } catch (error) {
+        console.error("Error fetching favorites:", error);
+      }
+    };
+
+    fetchFavorites();
   }, [user]);
 
   if (!user) {

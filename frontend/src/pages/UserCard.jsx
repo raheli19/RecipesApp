@@ -1,22 +1,4 @@
-/*import React from "react";
-
-const RecipeCard = ({ category,  imgSrc }) => {
-  return (
-    <div className="recipe-card">
-      <img src={imgSrc} alt={category} />
-      <div className="recipe-info">
-        <h2>{category}</h2>
-        
-      </div>
-    </div>
-  );
-};
-
-export default RecipeCard;
-*/
-
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "../css/RecipeCard.css";
 
 const UserCard = ({ id, category, imgSrc }) => {

@@ -7,15 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 const db = require("./database");
-const PORT = process.env.port || 3006;
-const path = require("path");
+const PORT = process.env.port || 3001;
 const saltRounds = 10;
 
 app.use(bodyParser.json());
 
 
 app.post("/register", (req, res) => {
-  console.log(req.body);
   const { password } = req.body;
 
   bcrypt.hash(password, saltRounds, (err, hash) => {

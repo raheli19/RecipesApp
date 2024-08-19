@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../css/Home.css";
 import RecipeCard from "./RecipeCard";
-import Chatbox from "./ChatBot";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { useUser } from "../context/UserContext";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
+import { getRecipes } from "../services/recipeService";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -66,13 +66,17 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3006/getRecipes")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchRecipes = async () => {
+      try {
+        const data = await getRecipes();
         setRecipes(data);
         setFilteredRecipes(data);
-      })
-      .catch((error) => console.error("Error fetching recipes:", error));
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    };
+
+    fetchRecipes();
   }, []);
 
   return (
@@ -95,7 +99,10 @@ const Home = () => {
         All Recipes ({filteredRecipes.length})
       </h1>
 
-      <Search className="searchTool" style={{ position: 'fixed', top:38, right:130}}>
+      <Search
+        className="searchTool"
+        style={{ position: "fixed", top: 38, right: 130 }}
+      >
         <SearchIconWrapper>
           <i className="fas fa-search"></i>
         </SearchIconWrapper>
@@ -116,7 +123,6 @@ const Home = () => {
           />
         ))}
       </div>
-      <Chatbox />
     </div>
   );
 };

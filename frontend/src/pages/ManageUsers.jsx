@@ -12,6 +12,11 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import UserCard from "./UserCard";
 import { useUser } from "../context/UserContext";
+import {
+  getUsers,
+  deleteUserById,
+  updateUserById,
+} from "../services/userService";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../css/ManageRecipes.css";
 
@@ -62,55 +67,40 @@ export default function ManageUsers() {
   };
 
   useEffect(() => {
-    fetch("http://localhost:3006/getUsers")
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchUsers = async () => {
+      try {
+        const data = await getUsers();
         setUsers(data.filter((userItem) => userItem.id !== user.id));
-      })
-      .catch((error) => console.error("Error fetching users:", error));
-  }, []);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
 
-  const handleDelete = (id) => {
-    fetch(`http://localhost:3006/deleteUserByID/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error deleting the user");
-        } else {
-          setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
-          console.log("User deleted successfully");
-          handleClose();
-        }
-      })
-      .catch((error) => {
-        console.error("Error deleting the user:", error);
-      });
+    fetchUsers();
+  }, [user]);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteUserById(id);
+      setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+      handleClose();
+    } catch (error) {
+      console.error("Error deleting the user:", error);
+    }
   };
 
-  const handleUpdate = (id) => {
-    fetch(`http://localhost:3006/updateUserById/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updateUser),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Error updating the user");
-        }
-        setUsers((prevUsers) =>
-          prevUsers.map((user) =>
-            user.id === id ? { ...user, ...updateUser } : user
-          )
-        );
-        console.log("User updated successfully");
-        handleUpdateClose();
-      })
-      .catch((error) => {
-        console.error("Error updating the user:", error);
-      });
+  const handleUpdate = async (id) => {
+    try {
+      await updateUserById(id, updateUser);
+      setUsers((prevUsers) =>
+        prevUsers.map((user) =>
+          user.id === id ? { ...user, ...updateUser } : user
+        )
+      );
+      handleUpdateClose();
+    } catch (error) {
+      console.error("Error updating the user:", error);
+    }
   };
 
   const userPicture = {
@@ -119,7 +109,6 @@ export default function ManageUsers() {
     User: "https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/man-user-color-icon.png",
     Admin: "https://freesvg.org/img/administrator.png",
   };
-
 
   return (
     <div
@@ -141,7 +130,7 @@ export default function ManageUsers() {
             <UserCard
               id={user.id}
               category={user.first_name}
-              imgSrc={userPicture[user.role]} // Replace with the path to your user icon
+              imgSrc={userPicture[user.role]}
             />
             <div className="recipe-actions">
               <button

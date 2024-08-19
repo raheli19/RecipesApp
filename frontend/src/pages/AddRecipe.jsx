@@ -3,7 +3,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import axios from "axios";
+import { addNewRecipe } from "../services/recipeService";
+import { getAllIngredients } from "../services/ingredientService";
 import "../css/AddRecipe.css";
 import { useUser } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -99,17 +100,14 @@ function AddRecipe() {
     ingredients: [],
   });
   const [selectedIngredients, setSelectedIngredients] = useState([]);
-  const navigate = useNavigate();
-
   const [ingredientsList, setIngredientsList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:3006/getAllIngredients"
-        );
-        setIngredientsList(response.data);
+        const ingredients = await getAllIngredients();
+        setIngredientsList(ingredients);
       } catch (error) {
         console.error("Failed to fetch ingredients:", error);
       }
@@ -118,32 +116,22 @@ function AddRecipe() {
     fetchIngredients();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const id = Math.floor(Math.random() * 1000000);
 
-    fetch("http://localhost:3006/addRecipe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    try {
+      await addNewRecipe({
         ...formData,
         id,
         ingredients: selectedIngredients,
-      }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        console.log("Recipe added successfully");
-        navigate("/home");
-      })
-      .catch((error) => {
-        console.error("Error adding new recipe:", error);
       });
+      console.log("Recipe added successfully");
+      navigate("/home");
+    } catch (error) {
+      console.error("Error adding new recipe:", error);
+    }
   };
 
   const handleChange = (e) => {
